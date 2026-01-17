@@ -7,7 +7,7 @@ CREATE TABLE "Product" (
     "originalPrice" REAL,
     "image" TEXT NOT NULL,
     "category" TEXT NOT NULL,
-    "inStock" BOOLEAN NOT NULL  true,
+    "inStock" BOOLEAN NOT NULL DEFAULT true,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" DATETIME NOT NULL
 );
