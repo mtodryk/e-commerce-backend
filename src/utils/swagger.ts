@@ -1,4 +1,5 @@
 import swaggerJsdoc from "swagger-jsdoc";
+import path from "path";
 
 const options: swaggerJsdoc.Options = {
   definition: {
@@ -134,8 +135,7 @@ const options: swaggerJsdoc.Options = {
                 properties: {
                   size: {
                     type: "string",
-                    enum: ["S", "M", "L", "XL"],
-                    description: "The size of the variant",
+                    description: "The size of the variant (e.g. S, M, L, XL, 38, 42)",
                   },
                   inStock: {
                     type: "boolean",
@@ -173,7 +173,12 @@ const options: swaggerJsdoc.Options = {
       },
     },
   },
-  apis: ["./src/routes/*.ts"],
+  apis: [
+    path.resolve(process.cwd(), "src/routes/*.ts"),
+    path.resolve(process.cwd(), "dist/routes/*.js"),
+    "./src/routes/*.ts",
+    "./dist/routes/*.js",
+  ],
 };
 
 export const specs = swaggerJsdoc(options);
